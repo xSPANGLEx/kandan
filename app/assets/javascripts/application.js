@@ -23,3 +23,5 @@
 //= require lib/jquery.atwho
 //= require lib/jquery.caret
 //= require lib/jquery.inputHistory
+//= require i18n
+//= require i18n/translations

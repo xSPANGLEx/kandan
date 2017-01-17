@@ -1,0 +1,9 @@
+<div class="avatar_edit">
+<%= form_tag(@action_url, :multipart => true) do %>
+ <label>アイコン画像を指定：
+  <%= file_field_tag "upfile",{ :size => 50 } %>
+ </label>
+ <br />
+ <%= submit_tag "アップロード" %>
+<% end %>
+</div>

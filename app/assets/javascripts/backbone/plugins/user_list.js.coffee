@@ -1,6 +1,6 @@
 class Kandan.Plugins.UserList
 
-  @widget_title: "People"
+  @widget_title: "Online"
   @widget_icon_url: "/assets/people_icon.png"
   @pluginNamespace: "Kandan.Plugins.UserList"
 
@@ -20,7 +20,7 @@ class Kandan.Plugins.UserList
 
     for user in Kandan.Data.ActiveUsers.all()
       displayName   = null
-      displayName   = user.username # Defaults to username
+      displayName   = user.first_name+" "+user.last_name # Defaults to username
       displayName ||= user.email # Revert to user email address if that's all we have
       isAdmin       = user.is_admin
 

@@ -38,6 +38,10 @@ Kandan::Application.routes.draw do
   get "/suspended", :to => "pages#suspended"
   get "/about", :to =>"pages#about"
 
+  match "/avatar_image/upload/:id", :to => "avatar#upload"
+  match "/avatar_image/download/:id", :to => "avatar#download"
+  match "/avatar_image/edit/:id", :to => "avatar#edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

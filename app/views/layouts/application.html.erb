@@ -16,6 +16,11 @@
       $.data(document, "current-user", <%= current_user_data.to_json.html_safe %>);
     <% end %>
   <%- end %>
+  <script type="text/javascript">
+    I18n.defaultLocale = "<%= I18n.default_locale %>";
+    I18n.locale = "<%= I18n.locale %>";
+    I18n.fallbacks = true;
+  </script>
 </head>
 <body data-kandan-config="<%= Kandan::Config.to_json %>">
   <div id="kandan">
@@ -36,6 +41,7 @@
       <div class="user_menu">
         <%= link_to 'Admin console', admin_root_path, :target => "_blank" if current_user.is_admin? %>
         <%= link_to 'Edit Account', users_edit_path, :target => "_blank" %><br />
+        <%= link_to 'Edit Image', "/avatar_image/edit/#{current_user.gravatar_hash}", :target => "_blank" %><br />
         <%= link_to 'Logout', destroy_user_session_path, :method => :delete %><br />
         <hr>
         <%= link_to 'About Kandan', about_path, :target => "_blank" %>

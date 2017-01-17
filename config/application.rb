@@ -20,7 +20,7 @@ require "./lib/kandan_config.rb"
 module Kandan
   class Application < Rails::Application
     # Dealing with Heroku-specific eccentricities
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -41,8 +41,10 @@ module Kandan
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ja
+
+    I18n.locale = config.i18n.locale = config.i18n.default_locale
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

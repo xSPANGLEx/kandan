@@ -53,6 +53,7 @@ window.Kandan =
     $(window).focus(->
       Kandan.Helpers.Utils.browserTabFocused = true
       Kandan.Helpers.Utils.resetUnreadActivities()
+      Kandan.Helpers.Utils.resetUnreadActivitiesTab(Kandan.Helpers.Channels.getActiveChannelId())
       Kandan.Plugins.Notifications?.resetUnreadActivities()
       $(document).attr('title', 'Kandan')
     )
@@ -79,6 +80,7 @@ window.Kandan =
         delay = (ms, func) -> setTimeout func, ms
         delay 1, -> Kandan.Helpers.Channels.scrollToLatestMessage(theId)
         Kandan.Data.Channels.runCallbacks('change')
+        Kandan.Helpers.Utils.resetUnreadActivitiesTab(theId)
 
 
       add: (event, ui) ->
@@ -123,10 +125,10 @@ window.Kandan =
       callback()
 
   registerUtilityEvents: ()->
-    window.setInterval(=>
-      for el in $(".posted_at")
-        $(el).text (new Date($(el).data("timestamp"))).toRelativeTime(@options().now_threshold)
-    , @options().timestamp_refresh_interval)
+    #window.setInterval(=>
+    #  for el in $(".posted_at")
+    #    $(el).text (new Date($(el).data("timestamp"))).toRelativeTime(@options().now_threshold)
+    #, @options().timestamp_refresh_interval)
 
   init: ->
     asyncInitializers = [

@@ -3,8 +3,8 @@
   <a href="#<%= "channels-#{channel.get('id')}" %>"  class="show_channel" >
     <span class="tab_right"></span>
     <span class="tab_left"></span>
-    <span class="tab_content">	
-      <cite><%= channel.get('name') %></cite>
+    <span class="tab_content">
+      <cite class="<%= "tab_value-#{channel.get('id')} "%>"><%= channel.get('name') %></cite>
     </span>
   </a>	
   </li>

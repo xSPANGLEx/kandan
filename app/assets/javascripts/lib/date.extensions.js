@@ -38,6 +38,16 @@
  * --> 'Right now'
  *
  */
+
+ Date.prototype.toStrFormat = (function() {
+   var year = this.getFullYear();
+   var month = this.getMonth() + 1;
+   var day = this.getDate();
+   var hour = this.getHours();
+   var minute = this.getMinutes();
+   return year + "/" + month + "/" + day + " " + hour + ":" + minute
+ });
+
  Date.prototype.toRelativeTime = (function() {
 
   var _ = function(options) {

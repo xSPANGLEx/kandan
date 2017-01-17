@@ -60,13 +60,13 @@ class ActiveUsers
     end
 
     def publish_message(event, user)
-      Channel.send("user_#{event}", user) if not event == "update"
-
-      FAYE_CLIENT.publish("/app/activities", {
-          :event  => "user##{event}",
-          :entity => user,
-          :extra  => { :active_users => ActiveUsers.all }
-        })
+#      Channel.send("user_#{event}", user) if not event == "update"
+#
+#      FAYE_CLIENT.publish("/app/activities", {
+#          :event  => "user##{event}",
+#          :entity => user,
+#          :extra  => { :active_users => ActiveUsers.all }
+#        })
     end
   end
 end

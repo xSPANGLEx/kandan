@@ -14,7 +14,8 @@
 
 :public_site: true
 
-:avatar_url: http://gravatar.com/avatar/%{hash}?s=%{size}&d=%{fallback}
+# Change [hostname] and [port]
+:avatar_url: http://[hostname]:[port]/avatar_image/download/%{hash}
 :avatar_fallback: identicon
 
 :now_threshold: 3000
